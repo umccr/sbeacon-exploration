@@ -1,0 +1,1098 @@
+{
+	"info": {
+		"_postman_id": "d4b40fd7-6e15-4d3f-86a0-68fa7aed6d5a",
+		"name": "sBeacon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "702968"
+	},
+	"item": [
+		{
+			"name": "Get /",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API}}/",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get /map",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API}}/map",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post /submit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"datasetId\": \"novcf-test-dataset2\",\r\n  \"assemblyId\": \"wic-test-2\",\r\n  \"dataset\": {\r\n      \"name\": \"my test dataset 2\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/submit",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch /submit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"wic_test\",\r\n    \"name\": \"just a test\",\r\n    \"assemblyId\": \"test_2\",\r\n    \"vcfLocations\": [\r\n        \"loc1\", \"loc2\", \"loc3\", \"loc4\", \"loc5\"\r\n    ],\r\n    \"skipCheck\": true,\r\n    \"vcfGroups\":\r\n    [\r\n        [\"loc1\", \"loc2\"],\r\n        [\"loc3\", \"loc4\"],\r\n        [\"loc5\"]\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/submit",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filtering_terms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API}}/filtering_terms?skip=0&limit=500",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"filtering_terms"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "individuals",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": [],\r\n        \"pagination\": {\r\n            \"limit\": 100,\r\n            \"skip\": 0\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/individuals?requestedGranularity=record",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"individuals"
+					],
+					"query": [
+						{
+							"key": "requestedGranularity",
+							"value": "record"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "individuals/filtering_terms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API}}/individuals/filtering_terms",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"individuals",
+						"filtering_terms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "individuals/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": [\r\n            {\r\n                \"id\": \"NCIT:C126535\"\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/individuals/0-0-1/?requestedGranularity=record",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"individuals",
+						"0-0-1",
+						""
+					],
+					"query": [
+						{
+							"key": "requestedGranularity",
+							"value": "record"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "individuals/{id}/biosamples",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": [\r\n             {\"id\": \"NCIT:C126531\"}\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/individuals/0-0-1/biosamples",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"individuals",
+						"0-0-1",
+						"biosamples"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "individuals/{id}/g_variants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"includeResultsetResponses\": \"HIT\",\r\n        \"requestedGranularity\": \"record\",\r\n        \"requestParameters\": {\r\n            \"assemblyId\": \"GRCH37\",\r\n            \"start\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"end\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"referenceBases\": \"A\",\r\n            \"referenceName\": \"5\",\r\n            \"alternateBases\": \"N\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/individuals/0-0-1/g_variants",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"individuals",
+						"0-0-1",
+						"g_variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g_variants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"pagination\": {\r\n        },\r\n        \"includeResultsetResponses\": \"HIT\",\r\n        \"requestedGranularity\": \"record\",\r\n        \"requestParameters\": {\r\n            \"assemblyId\": \"GRCH38\",\r\n            \"start\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"end\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"referenceBases\": \"A\",\r\n            \"referenceName\": \"5\",\r\n            \"alternateBases\": \"N\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/g_variants",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"g_variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g_variants/{id}/individuals",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"pagination\": {\r\n            \"currentPage\": \"0:10,0:100\"\r\n        },\r\n        \"filters\": []\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/g_variants/R1JDSDM4CTUJMTAwMDA2NTgJQQlH/individuals",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"g_variants",
+						"R1JDSDM4CTUJMTAwMDA2NTgJQQlH",
+						"individuals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g_variants/{id}/biosamples",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": []\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/g_variants/R1JDSDM4CTUJMTAwMDA2NTgJQQlH/biosamples",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"g_variants",
+						"R1JDSDM4CTUJMTAwMDA2NTgJQQlH",
+						"biosamples"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "biosamples",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": [],\r\n        \"pagination\": {\r\n            \"limit\": 10,\r\n            \"skip\": 0\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/biosamples?requestedGranularity=record",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"biosamples"
+					],
+					"query": [
+						{
+							"key": "requestedGranularity",
+							"value": "record"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "biosamples/filtering_terms",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/biosamples/filtering_terms",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"biosamples",
+						"filtering_terms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "biosamples/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/biosamples/0-0-2",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"biosamples",
+						"0-0-2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "biosamples/{id}/runs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/biosamples/0-0-2/runs",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"biosamples",
+						"0-0-2",
+						"runs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "biosamples/{id}/analyses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/biosamples/0-0-2/analyses",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"biosamples",
+						"0-0-2",
+						"analyses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "biosamples/{id}/g_variants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"includeResultsetResponses\": \"HIT\",\r\n        \"requestedGranularity\": \"record\",\r\n        \"requestParameters\": {\r\n            \"assemblyId\": \"GRCH37\",\r\n            \"start\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"end\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"referenceBases\": \"A\",\r\n            \"referenceName\": \"5\",\r\n            \"alternateBases\": \"N\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/biosamples/0-0-2/g_variants",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"biosamples",
+						"0-0-2",
+						"g_variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "runs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": [],\r\n        \"pagination\": {\r\n            \"limit\": 10,\r\n            \"skip\": 0\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/runs?requestedGranularity=record",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"runs"
+					],
+					"query": [
+						{
+							"key": "requestedGranularity",
+							"value": "record"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "runs/filtering_terms",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/runs/filtering_terms",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"runs",
+						"filtering_terms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "runs/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/runs/0-0-2",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"runs",
+						"0-0-2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "runs/{id}/analyses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/runs/0-0-2/analyses",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"runs",
+						"0-0-2",
+						"analyses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "runs/{id}/g_variants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"includeResultsetResponses\": \"HIT\",\r\n        \"requestedGranularity\": \"record\",\r\n        \"requestParameters\": {\r\n            \"assemblyId\": \"GRCH37\",\r\n            \"start\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"end\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"referenceBases\": \"A\",\r\n            \"referenceName\": \"5\",\r\n            \"alternateBases\": \"N\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/runs/0-0-2/g_variants",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"runs",
+						"0-0-2",
+						"g_variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analyses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/analyses",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"analyses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analyses/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/analyses/0-0-2",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"analyses",
+						"0-0-2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analyses/{id}/g_variants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"includeResultsetResponses\": \"HIT\",\r\n        \"requestedGranularity\": \"record\",\r\n        \"requestParameters\": {\r\n            \"assemblyId\": \"GRCH37\",\r\n            \"start\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"end\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"referenceBases\": \"A\",\r\n            \"referenceName\": \"5\",\r\n            \"alternateBases\": \"N\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/analyses/0-0-2/g_variants",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"analyses",
+						"0-0-2",
+						"g_variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analyses/filtering_terms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API}}/analyses/filtering_terms",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"analyses",
+						"filtering_terms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "datasets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": [],\r\n        \"pagination\": {\r\n            \"limit\": 5,\r\n            \"skip\": 0\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/datasets?requestedGranularity=record",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"datasets"
+					],
+					"query": [
+						{
+							"key": "requestedGranularity",
+							"value": "record"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "datasets/{id}/filtering_terms",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/datasets/0-1/filtering_terms",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"datasets",
+						"0-1",
+						"filtering_terms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "datasets/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/datasets/0-1",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"datasets",
+						"0-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "datasets/{id}/individuals",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/datasets/0-1/individuals",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"datasets",
+						"0-1",
+						"individuals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "datasets/{id}/biosamples",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/datasets/0-1/biosamples",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"datasets",
+						"0-1",
+						"biosamples"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "datasets/{id}/g_variants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"includeResultsetResponses\": \"HIT\",\r\n        \"requestedGranularity\": \"record\",\r\n        \"requestParameters\": {\r\n            \"assemblyId\": \"GRCH38\",\r\n            \"start\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"end\": [\r\n                10000000,\r\n                10001000\r\n            ],\r\n            \"referenceBases\": \"A\",\r\n            \"referenceName\": \"5\",\r\n            \"alternateBases\": \"N\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/datasets/0-1/g_variants",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"datasets",
+						"0-1",
+						"g_variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cohorts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\",\r\n        \"filters\": [],\r\n        \"pagination\": {\r\n            \"limit\": 10,\r\n            \"skip\": 0\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/cohorts?requestedGranularity=record",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"cohorts"
+					],
+					"query": [
+						{
+							"key": "requestedGranularity",
+							"value": "record"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cohorts/{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/cohorts/0-7",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"cohorts",
+						"0-7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cohorts/{id}/filtering_terms",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/cohorts/0-0/filtering_terms",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"cohorts",
+						"0-0",
+						"filtering_terms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cohorts/{id}/individuals",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meta\": {\r\n        \"apiVersion\": \"v2.0\"\r\n    },\r\n    \"query\": {\r\n        \"requestedGranularity\": \"record\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/cohorts/0-7/individuals",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"cohorts",
+						"0-7",
+						"individuals"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "awsv4",
+		"awsv4": [
+			{
+				"key": "sessionToken",
+				"value": "{{AWS_SESS_TOK}}",
+				"type": "string"
+			},
+			{
+				"key": "secretKey",
+				"value": "{{AWS_SEC_KEY}}",
+				"type": "string"
+			},
+			{
+				"key": "accessKey",
+				"value": "{{AWS_ACC_KEY}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API",
+			"value": "https://vjm0zteelb.execute-api.us-east-1.amazonaws.com/prod",
+			"type": "string"
+		}
+	]
+}
