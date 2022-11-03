@@ -15,7 +15,7 @@ For the implementation, we test drive the serverless beacon implementation from 
 ### Procedure
 
 - AEHRC sBeacon team has added support to the recent [Beacon v2 standard](https://github.com/ga4gh-beacon/beacon-v2).
-- We (UMCCR team) is working closely with AEHRC sBeacon team on test-driving this pilot deployment effort.
+- We (UMCCR team) are working closely with AEHRC sBeacon team on test-driving this pilot deployment effort.
 - This development activity is happening in `dev` branch of sBeacon GitHub repo.
 - Deploy the serverless beacon following the instructions on the sBeacon GitHub [repo](https://github.com/aehrc/terraform-aws-serverless-beacon/tree/dev)
   - The [Postman](https://www.postman.com) collection in `utils` can be used for testing the API
