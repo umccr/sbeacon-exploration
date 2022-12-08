@@ -18,7 +18,7 @@ For the implementation, we test drive the serverless beacon implementation from 
   - https://bioinformatics.csiro.au/serverless-beacon/
   - https://publications.csiro.au/publications/publication/PIcsiro:EP207057
   - https://publications.csiro.au/publications/publication/PIcsiro:EP2022-0079
-  - https://docs.google.com/presentation/d/1oIw76fhR6u97SWVy_a6QoSBRbCbQ5oGUf0Njwao3I6g/edit?usp=sharing
+  - [Overview Slides](https://docs.google.com/presentation/d/1qV_CTCPEftCGmzzC1dK_s1evBl8BQUB1H8eUoEVIWzU/edit#slide=id.p10)
 
 ### Setting up sBeacon
 
