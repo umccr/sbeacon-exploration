@@ -113,7 +113,7 @@ curl -s -X POST 'https://beacon.demo.umccr.org/g_variants' \
         "includeResultsetResponses": "HIT",
         "requestedGranularity": "record",
         "requestParameters": {
-            "assemblyId": "GRCh37",
+            "assemblyId": "GRCh38",
             "start": [
                 10000000,
                 10001000
