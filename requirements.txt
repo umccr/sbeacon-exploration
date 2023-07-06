@@ -1,0 +1,6 @@
+jupyterlab
+openpyxl
+pandas
+numpy
+# PyCharm still use classic nb
+notebook
