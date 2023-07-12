@@ -209,7 +209,7 @@ curl -s -X POST 'https://beacon.demo.umccr.org/individuals' \
 
 #### Example 4.6 - Give me Individual having particular disesa code
 
-Say individual with `Influenza` [MONDO](https://www.ebi.ac.uk/ols/ontologies/mondo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FMONDO_0004979) disease code `MONDO:0004979`
+Say individual with `asthma` [MONDO](https://www.ebi.ac.uk/ols/ontologies/mondo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FMONDO_0004979) disease code `MONDO:0004979`
 
 ```bash
 curl -s -X GET 'https://beacon.demo.umccr.org/individuals?requestedGranularity=count&filters=MONDO:0004979' | jq
